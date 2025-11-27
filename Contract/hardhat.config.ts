@@ -7,36 +7,33 @@ dotenv.config();
 console.log("Private key from env:", process.env.PRIVATE_KEY);
 
 const config: HardhatUserConfig = {
-  solidity: {
-    version: "0.8.28",
-    settings: {
-      optimizer: {
-        enabled: true,
-        runs: 200, // You can adjust runs depending on contract size
-      },
-    },
-  },
+  solidity: "0.8.28",
   networks: {
-    og_testnet_v3: {
-      url: "https://evmrpc-testnet.0g.ai",
-      chainId: 16602,
-      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+    polygon_amoy: {
+      url: "https://rpc-amoy.polygon.technology",
+      accounts: [process.env.PRIVATE_KEY] as string[],
     },
-    sepolia: {
-      url: process.env.SEPOLIA_RPC_URL || "",
-      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
-      chainId: 11155111,
+    localhost: {
+      url: "http://127.0.0.1:8545",
+      chainId: 31337,
     },
-    OG_Mainnet: {
-      url: "https://evmrpc.0g.ai",
-      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
-      chainId: 16661,
-    },
-
-
-
-
   },
+  etherscan: {
+    apiKey: {
+      PolygonTestnet: "not-needed",
+    },
+    customChains: [
+      {
+        network: "PolygonTestnet",
+        chainId: 845320009,
+        urls: {
+          apiURL: "https://Polygon-explorer-testnet.appchain.base.org/api",
+          browserURL: "https://Polygon-explorer-testnet.appchain.base.org"
+        }
+      }
+    ]
+  }
 };
+
 
 export default config;

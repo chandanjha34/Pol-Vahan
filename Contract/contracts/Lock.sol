@@ -19,10 +19,9 @@ contract SimpleVehicleNFT is ERC721 {
 
     constructor() ERC721("Vehicle Passport", "VPASS") {}
 
-    function mint(address to, string memory tokenURI_,string memory metadatahash) external returns (uint256) {
+    function mint(address to, string memory tokenURI_) external returns (uint256) {
         uint256 tokenId = tokenCounter;
         tokenCounter += 1;
-        MetadatahashCollector[tokenId]=metadatahash;
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, tokenURI_);
         return tokenId;

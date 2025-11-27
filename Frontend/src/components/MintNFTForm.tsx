@@ -87,9 +87,7 @@ const MintNFTForm: React.FC<MintNFTFormProps> = ({ isOpen, onClose }) => {
       setFormState("loading");
     console.log('checkpoint 2')
       // 1️⃣ Upload image to 0G
-      const imageRootHash = await uploadImage(imageFile);
-          console.log('checkpoint 3')
-      console.log("✅ Image uploaded:", imageRootHash);
+
 
       const res1 = await fetch(`https://api.cloudinary.com/v1_1/dbvezos5j/image/upload`,{
         method: "POST",
@@ -107,14 +105,11 @@ const MintNFTForm: React.FC<MintNFTFormProps> = ({ isOpen, onClose }) => {
         year: formData._year,
         purchasePrice: formData._purchasePrice,
         initialMileage: formData._initialMileage,
-        imageRootHash,
         MediaURL,
         createdAt: new Date().toISOString(),
       };
     console.log('checkpoint 4')
       // 3️⃣ Upload metadata JSON to 0G
-      const metadataRootHash = await uploadMetadata(metadata);
-      console.log("✅ Metadata uploaded:", metadataRootHash);
 
 const ipfsResponse = await fetch('https://og-devahan-2.onrender.com/api/IPFS', {
   method: 'POST',
@@ -122,8 +117,8 @@ const ipfsResponse = await fetch('https://og-devahan-2.onrender.com/api/IPFS', {
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
-    name: formData._make,
-    description: formData._model,
+    name:formData._vin,
+    description: `Vehicle NFT for ${formData._make} ${formData._model} (${formData._year})`,
     image: MediaURL,
   }),
 });
@@ -138,10 +133,8 @@ if (!uri) {
 
 console.log("Received Token URI from backend:", uri);
 
-
-
       // 4️⃣ Mint NFT with metadata root hash
-      const txHash = await mint(formData._owner,uri, metadataRootHash);
+      const txHash = await mint(formData._owner,uri);
       console.log("✅ NFT minted successfully:", txHash);
 
       setFormState("success");

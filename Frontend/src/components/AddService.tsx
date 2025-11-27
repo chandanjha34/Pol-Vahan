@@ -21,18 +21,23 @@ function AddService() {
 
     try {
       // Step 1: Upload JSON to 0G (mock API)
-      const uploadRes = await fetch("https://og-devahan-2.onrender.com/api/uploadJSON", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const ipfsResponse = await fetch('https://og-devahan-2.onrender.com/api/IPFS', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify(form),
       });
-      const data = await uploadRes.json();
-      const hash = data.rootHash;
+      
+      console.log(ipfsResponse)
+      const data = await ipfsResponse.json();
+      console.log(data);
+      const uri = data.tokenUri;
       // Step 2: Save hash to MongoDB
       await fetch("https://og-devahan-2.onrender.com/addService", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ vehicleId: form.vehicleId, serviceHash: hash }),
+        body: JSON.stringify({ vehicleId: form.vehicleId, serviceHash: uri }),
       });
 
       alert("✅ Service record added successfully!");

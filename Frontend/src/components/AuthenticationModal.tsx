@@ -35,10 +35,11 @@ function AuthenticationModal({
   const walletAddress = useSelector((state: RootState) => state.wallet.value);
   const nftcontext = useContext(NFTContext);
   if (!nftcontext) return <p>Error loading NFT context.</p>;
-
+    const { connectWallet } = nftcontext;
   const connect = async () => {
     try {
-      const wallet = await metamaskConnect();
+      const wallet = await connectWallet();
+      console.log('Connected wallet:', wallet);
       if (wallet && typeof wallet === 'string') {
         dispatch(assignAddress(wallet));
       }
