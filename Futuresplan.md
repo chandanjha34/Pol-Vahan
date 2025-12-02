@@ -18,8 +18,8 @@ To create a **trustless, intelligent, and interoperable automotive ecosystem** p
 
 ### **Phase 1 – Foundation (✅ Completed)**
 
-* [x] 0G Storage integration for file & JSON uploads
-* [x] 0G Data Availability (DA) integration for on-chain metadata
+* [x] Polygon integration for blockchain
+* [x] AggLayer integration for security
 * [x] 0G Compute integration for AI-powered service recommendations
 * [x] Authentication & Dealer onboarding system
 * [x] Basic NFT-based vehicle tokenization structure
@@ -37,7 +37,7 @@ To create a **trustless, intelligent, and interoperable automotive ecosystem** p
 
 ### **Phase 3 – AI & Predictive Intelligence Layer (Q3 2026)**
 
-* [ ] Deploy **Decentralized AI models** (via 0G Compute) for:
+* [ ] Deploy **Decentralized AI models** (via Polygon Community) for:
 
   * Predictive maintenance
   * Fault diagnosis
@@ -88,17 +88,6 @@ We welcome developers, automotive OEMs, and blockchain researchers to collaborat
 
 ---
 
-## 🪐 Tech Stack (as of current phase)
-
-| Layer        | Technology                         |
-| ------------ | ---------------------------------- |
-| Blockchain   | 0G Testnet / EVM                   |
-| Compute      | 0G Compute Network                 |
-| Storage      | 0G Storage + Data Availability     |
-| AI Layer     | Decentralized LLM inference via 0G |
-| Backend      | Node.js / Express / MongoDB        |
-| Frontend     | React + Vite                       |
-| Tokenization | ERC-721                            |
 
 ---
 
@@ -112,12 +101,12 @@ We welcome developers, automotive OEMs, and blockchain researchers to collaborat
 
 ## 📧 Contact & Community
 
-* **Website:** https://og-de-vahan.vercel.app/
+* **Website:** https://polvahan.vercel.app
 * **Email:** jha95375@gmail.com
-* **GitHub:** https://github.com/chandanjha34/OG-DeVahan
+* **GitHub:** https://github.com/chandanjha34/Pol-Vahan
 
 ---
 
-> *Built on 0G — because your vehicle data deserves zero gravity limits.*
+> *Built on Polygon — because your vehicle data deserves security.*
 
 ---
