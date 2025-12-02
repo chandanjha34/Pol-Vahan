@@ -1,6 +1,6 @@
 # 🚗 DeVahan – Decentralized Vehicle Intelligence Network
 
-A decentralized ecosystem for **vehicle identity, data integrity, and AI-powered lifecycle management**, built on **0G’s decentralized compute, DA and storage infrastructure**.
+A decentralized ecosystem for **vehicle identity, data integrity, and AI-powered lifecycle management**, built on **Polygon's fast L2 infrastructure**.
 
 **Status:** Production Ready ✅ | **Version:** 1.0
 
@@ -16,7 +16,7 @@ A decentralized ecosystem for **vehicle identity, data integrity, and AI-powered
 6. Setup Instructions
 7. How to Use
 8. AI Model Training
-9. 0G Integration
+9. Polygon Integration
 10. Troubleshooting
 11. Future Roadmap
 12. Contributing
@@ -30,14 +30,13 @@ A decentralized ecosystem for **vehicle identity, data integrity, and AI-powered
 
 * Node.js v20+
 * npm v10+
-* 0G Wallet with OG tokens
-* IPFS or 0G Storage access key
+* EVM Wallet with $Pol tokens
 
 ### 2️⃣ Installation
 
 ```bash
-https://github.com/chandanjha34/OG-DeVahan.git
-cd OG-DeVahan
+https://github.com/chandanjha34/Pol-Vahan.git
+cd Pol-Vahan
 
 cd Backend
 npm install
@@ -96,17 +95,13 @@ Client (React + Vite)
    │
    ▼
 Backend (Express + Node.js)
-   │
-   ├── Vehicle APIs (identity, history, diagnostics)
-   ├── 0G Storage (vehicle records)
-   ├── 0G Compute (AI diagnostics)
-   └── 0G Ledger (on-chain metadata)
+
 ```
 
 ### Data Flow
 
-1. Starts with Dealer, dealer mints NFT with all the vehicle details into the buyer's wallet by uploading metadata on 0G storage
-2. Service centers will upload service records by binding it with vehicle id(making hash of service record's json and then upload same on 0g and then hash on backend)
+1. Starts with Dealer, dealer mints NFT with all the vehicle details into the buyer's wallet by uploading metadata on IPFS storage
+2. Service centers will upload service records by binding it with vehicle id(making hash of service record's json and then upload same on IPFS and then hash on backend)
 3. Then owners can see their vehicles and service records ledger from their dashboard.
 4. They can also check resale value of their vehicles
 5. Then owners can enquire about someone's vehicle just by typing its vehicle id in VahanSarthi.
@@ -118,9 +113,9 @@ Backend (Express + Node.js)
 | ---------- | ------------------ | ---------------------------------- |
 | Frontend   | React + Tailwind   | UI/UX for vehicle dashboard        |
 | Backend    | Node.js + Express  | REST APIs                          |
-| Blockchain | 0G Mainnet, EVM    | On-chain storage and compute       |
+| Blockchain | Polygon Testnet, EVM| On-chain activities and validation|
 | AI         | 0G Compute Network | Decentralized inference & training |
-| Storage    | 0G Storage         | Vehicle records & verification     |
+| Storage    | IPFS Storage       | Vehicle records & verification     |
 | DB         | MongoDB            | Off-chain cache and indexing       |
 
 ---
@@ -130,7 +125,7 @@ Backend (Express + Node.js)
 ### ✅ Core (Implemented)
 
 * Vehicle NFT minting
-* Service record storage via 0G
+* Service record storage via IPFS
 * AI-based maintenance predictions
 * Dealer & service provider registration
 * Data verification via Merkle proofs
